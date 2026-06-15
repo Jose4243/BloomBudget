@@ -24,6 +24,8 @@
         <activity android:name=".CreateCategoryActivity" android:exported="false" />
         <activity android:name=".AddExpenseActivity" android:exported="false" />
         <activity android:name=".ListViewActivity" android:exported="false" />
+        <activity android:name=".AnalyticsActivity" android:exported="false" />
+        <activity android:name=".RewardsActivity" android:exported="false" />
 
     </application>
 

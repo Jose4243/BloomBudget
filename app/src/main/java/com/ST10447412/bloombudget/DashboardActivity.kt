@@ -4,8 +4,10 @@ import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.graphics.Typeface
+import android.net.Uri
 import android.os.Bundle
 import android.text.InputType
+import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
@@ -39,12 +41,42 @@ class DashboardActivity : AppCompatActivity() {
         tvGoalText.setOnClickListener {
             showSetGoalDialog()
         }
+
+
+        val profileIcon = findViewById<ImageView>(R.id.profile_settings)
+
+        profileIcon.setOnClickListener {
+            val intent = Intent(this, AnalyticsActivity::class.java)
+            startActivity(intent)
+        }
+
+
+        val imgProfileTop = findViewById<ImageView>(R.id.userProfile_pic)
+
+        imgProfileTop.setOnClickListener {
+            val intent = Intent(this, RewardsActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 
     override fun onResume() {
-        super.onResume()
         updateDashboardUI()
-    }
+        super.onResume()
+
+            val sharedPrefs = getSharedPreferences("UserPrefs", Context.MODE_PRIVATE)
+            val savedUriStr = sharedPrefs.getString("profile_pfp_uri", null)
+            if (!savedUriStr.isNullOrEmpty()) {
+                try {
+                    val imgProfileTop = findViewById<ImageView>(R.id.userProfile_pic)
+                    imgProfileTop.setImageURI(Uri.parse(savedUriStr))
+                } catch (e: Exception) {
+                    Log.e("DashboardDebug", "Safe-catch triggered: could not parse profile picture URI.")
+                }
+            }
+        }
+
+
 
     private fun updateDashboardUI() {
         val sharedPref = getSharedPreferences("UserData", Context.MODE_PRIVATE)

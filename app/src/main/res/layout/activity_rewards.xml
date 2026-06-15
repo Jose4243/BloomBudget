@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#121212"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center_horizontal">
+
+    <FrameLayout
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="16dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            app:cardCornerRadius="50dp"
+            app:cardBackgroundColor="#222222"
+            app:cardElevation="0dp">
+
+            <ImageView
+                android:id="@+id/ivRewardsProfilePic"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@android:drawable/sym_def_app_icon" />
+        </androidx.cardview.widget.CardView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabChangePfp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:backgroundTint="#FF9800"
+            app:fabCustomSize="36dp"
+            app:tint="#FFFFFF"
+            app:srcCompat="@android:drawable/ic_menu_camera" />
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your Achievements &amp; Badges"
+        android:textColor="#FFFFFF"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="4dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Keep tracking your daily habits to unlock more!"
+        android:textColor="#888888"
+        android:textSize="13sp"
+        android:layout_marginBottom="24dp"/>
+
+    <Button
+        android:id="@+id/btnScanReceipt"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:backgroundTint="#4CAF50"
+        android:text="📷 Scan Receipt for Expenses"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:layout_marginBottom="24dp"
+        app:cornerRadius="8dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#222222"
+        android:layout_marginBottom="24dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:id="@+id/rewardsBadgesContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
